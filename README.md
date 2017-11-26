@@ -2,7 +2,27 @@
 
 Demo of using swagger-ui for any codebase without library dependencies. Here, we make use of [Flask](http://flask.pocoo.org/) and Python.
 
-For more details, such as generalizing this to work across different languages & frameworks, please check out my blog post.
+For more details, such as generalizing this to work across different languages & frameworks, please check out [my blog post](http://blog.pangyanhan.com/posts/2017-11-26-using-swagger-ui-with-any-codebase.html)
+
+## Docker image
+
+To save some installation effort, you can follow the instructions in this section to build and run a Docker image that has everything you need.
+
+The following command builds a Docker image tagged `swagger-demo`:
+
+```
+./build-docker.sh
+```
+
+To run it (you have to be in the top level of this repo):
+
+```
+./run-docker.sh
+```
+
+Then go to `http://127.0.0.1:5000/swagger-ui`.
+
+You can modify `api-docs.yml` and refresh to see the updates.
 
 
 ## Requirements

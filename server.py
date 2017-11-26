@@ -1,4 +1,5 @@
 import os.path
+import sys
 from datetime import datetime
 from functools import wraps, update_wrapper
 
@@ -35,4 +36,7 @@ def swagger_api_docs_yml():
     return send_from_directory(".", "api-docs.yml")
 
 if __name__ == "__main__":
-    app.run("127.0.0.1", 5000, debug=True,)
+    interface = "127.0.0.1"
+    if len(sys.argv) > 1 and sys.argv[1] == "docker":
+        interface = "0.0.0.0"
+    app.run(interface, 5000, debug=True,)
