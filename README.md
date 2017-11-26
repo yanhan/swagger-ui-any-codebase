@@ -66,3 +66,13 @@ python server.py
 ```
 
 Go to http://127.0.0.1:5000/swagger-ui to see the swagger ui. Update [api-docs.yml](/api-docs.yml) and refresh to see the changes
+
+
+## License
+
+All files except:
+
+- files in [/swagger-ui-dist](/swagger-ui-dist)
+- the `nocache` function in [server.py](/server.py)
+
+are under the [MIT License](/LICENSE), Copyright (c) 2017 Pang Yan Han
