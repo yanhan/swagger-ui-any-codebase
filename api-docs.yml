@@ -1,0 +1,105 @@
+swagger: "3.0"
+info:
+  title: "API documentation for Open Pizza API"
+  description: |
+    This is the API documentation for the Open Pizza API. Here, we go through all public API endpoints that developers can make use of in libraries or 3rd party programs or similar.
+
+    This is powered by Swagger-UI
+  contact:
+    name: "Mike Saw"
+    url: "http://an.example.url.for.mike.saw"
+    email: "mike.saw@an.example.url.for.mike.saw"
+  version: "v0.1.0"
+  server:
+    url: "127.0.0.1"
+paths:
+  "/pizza/{type}":
+    get:
+      summary: Orders a Pizza
+      description: Places an order for a pizza at the nearest pizza store. Do not refresh, otherwise you will be making multiple orders and we will be charging you for it =)
+      parameters:
+        -
+          $ref: "#/components/schemas/PizzaType"
+        -
+          name: "size"
+          in: "query"
+          description: "Size of the pizza in inches. Defaults to 10 inches"
+          required: False
+          allowEmptyValue: True
+          type: "integer"
+          enum: [8, 10, 12, 16]
+        -
+          $ref: "#/components/schemas/Extras"
+      responses:
+        200:
+          description: "Succesfully ordered a pizza"
+          schema:
+            type: "object"
+            properties:
+              total:
+                type: "number"
+                description: "The total cost of the order"
+              breakdown:
+                type: "array"
+                items:
+                  type: "object"
+                  properties:
+                    name:
+                      type: "string"
+                      description: "the name of the item in the order"
+                    cost:
+                      type: "number"
+                      description: "the cost of this item"
+        400:
+          description: "Bad request"
+          schema:
+            type: "object"
+            properties:
+              message:
+                type: "string"
+                description: "the error message"
+        500:
+          description: "Internal server error"
+          schema:
+            type: "object"
+            properties:
+              message:
+                type: "string"
+                description: "the error message"
+      tags:
+        - "Ordering"
+
+components:
+  schemas:
+    PizzaType:
+      name: "type"
+      in: "path"
+      description: "The type of the Pizza. Valid values are described in the schema"
+      required: True
+      type: "string"
+      enum:
+        - "Hawaiian"
+        - "Neapolitan"
+        - "Margherita"
+        - "Pepperoni"
+        - "Seafood"
+        - "Pineapple"
+        - "Cheese"
+
+    Extras:
+      name: "extras"
+      in: "query"
+      description: "Any extra toppings you want. Charges apply"
+      required: False
+      allowEmptyValue: True
+      type: "array"
+      items:
+        type: "string"
+        enum:
+          - "cheese"
+          - "chicken"
+          - "bell pepper"
+          - "pineapple"
+          - "mushrooms"
+          - "seafood"
+          - "pepperoni"
