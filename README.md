@@ -2,7 +2,7 @@
 
 Demo of using swagger-ui for any codebase without library dependencies. Here, we make use of [Flask](http://flask.pocoo.org/) and Python.
 
-For more details, such as generalizing this to work across different languages & frameworks, please check out [my blog post](http://blog.pangyanhan.com/posts/2017-11-26-using-swagger-ui-with-any-codebase.html)
+For more details, such as generalizing this to work across different languages & frameworks, please check out [my blog post](http://blog.pangyanhan.com/posts/2017-11-26-using-swagger-ui-with-any-codebase.html).
 
 ## Docker image
 
