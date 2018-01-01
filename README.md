@@ -76,4 +76,4 @@ All files except:
 - files in [/swagger-ui-dist](/swagger-ui-dist)
 - the `nocache` function in [server.py](/server.py)
 
-are under the [MIT License](/LICENSE), Copyright (c) 2017 Pang Yan Han
+are under the [MIT License](/LICENSE), Copyright (c) 2017-2018 Pang Yan Han
